@@ -53,92 +53,23 @@
 <form action="/user/SignUp" method="post" class="form-signin">
     <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
 
-        姓名: &#8194;&#8194;<input type="text" placeholder="请输入姓名"> <span style="color:red">*</span><br>
+        姓名: &#8194;&#8194;<input type="text" name="username" placeholder="请输入姓名"> <span style="color:red">*</span><br>
         性别: <div class="form-check form-check-inline"> &nbsp &nbsp &nbsp &nbsp &nbsp
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+        <input class="form-check-input" type="radio" name="sex" id="inlineRadio1" value="option1">
         <label class="form-check-label" for="inlineRadio1">男</label> &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
     </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <input class="form-check-input" type="radio" name="sex" id="inlineRadio2" value="option2">
             <label class="form-check-label" for="inlineRadio2">女</label><span style="color:red">*</span><br>
         </div><br>
-        密码: &#8195;&#8194;&#8194;<input type="password" placeholder="请输入密码"><span style="color:red">*</span><br>
-        确认密码: <input type="password" placeholder="请再次输入密码"><span style="color:red">*</span><br>
-        家庭住址: <input type="text" placeholder="省－市－区"><br>
-        联系方式: <input type="text" placeholder="请输入联系方式"><span style="color:red">*</span><br>
-        推荐人名: <input type="text" placeholder="请输入推荐人姓名"><br>
+        密码: &#8195;&#8194;&#8194;<input type="password" name="password" placeholder="请输入密码"><span style="color:red">*</span><br>
+        确认密码: <input type="password" name="password" placeholder="请再次输入密码"><span style="color:red">*</span><br>
+        家庭住址: <input type="text" name="address" placeholder="省－市－区"><br>
+        联系方式: <input type="text" name="tel" placeholder="请输入联系方式"><span style="color:red">*</span><br>
+        推荐人名: <input type="text" name="referrer"placeholder="请输入推荐人姓名"><br>
         出生日期:
-        <select style="width:80px;height:300px;">
-            <option value="year1">1997</option>
-        <option value="year2">1996</option>
-        <option value="year3">1995</option>
-        <option value="year4">1994</option>
-        <option value="year5">1993</option>
-        <option value="year6">1992</option>
-        <option value="year7">1991</option>
-        <option value="year8">1990</option>
-        <option value="year9">1989</option>
-        <option value="year10">1987</option>
-        <option value="year11">1986</option>
-        <option value="year12">1985</option>
-        <option value="year13">1984</option>
-        <option value="year14">1983</option>
-        <option value="year15">1982</option>
-        <option value="year16">1981</option>
-        <option value="year17">1980</option>
-        <option value="year18">1979</option>
-        <option value="year19">1978</option>
-        <option value="year20">1977</option>
-        </select>
-        <select style="width:60px;height:300px;">
-            <option value="month1">1</option>
-            <option value="month2">2</option>
-            <option value="month3">3</option>
-            <option value="month4">4</option>
-            <option value="month4">4</option>
-            <option value="month5">5</option>
-            <option value="month6">6</option>
-            <option value="month7">7</option>
-            <option value="month8">8</option>
-            <option value="month9">9</option>
-            <option value="month10">10</option>
-            <option value="month11">11</option>
-            <option value="month12">12</option>
-        </select>
-        <select style="width:60px;height:300px;"><span style="color:red">*</span><br>
-            <option value="day1">1</option>
-            <option value="day2">2</option>
-            <option value="day3">3</option>
-            <option value="day4">4</option>
-            <option value="day5">5</option>
-            <option value="day6">6</option>
-            <option value="day7">7</option>
-            <option value="day8">8</option>
-            <option value="day9">9</option>
-            <option value="day10">10</option>
-            <option value="day11">11</option>
-            <option value="day12">12</option>
-            <option value="day13">13</option>
-            <option value="day14">14</option>
-            <option value="day15">15</option>
-            <option value="day16">16</option>
-            <option value="day17">17</option>
-            <option value="day18">18</option>
-            <option value="day19">19</option>
-            <option value="day20">20</option>
-            <option value="day21">21</option>
-            <option value="day22">22</option>
-            <option value="day23">23</option>
-            <option value="day24">24</option>
-            <option value="day25">25</option>
-            <option value="day26">26</option>
-            <option value="day27">27</option>
-            <option value="day28">28</option>
-            <option value="day29">29</option>
-            <option value="day30">30</option>
-            <option value="day31">31</option>
+        <input type="date"/>
 
-        </select><br>
 
         行业分会：
 
