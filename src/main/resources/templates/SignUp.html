@@ -2,9 +2,166 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>登陆页面</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: -ms-flexbox;
+            display: -webkit-box;
+            display: flex;
+            -ms-flex-align: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #f5f5f5;
+            text-align:center;
+            text-justify:inter-ideograph;
+
+
+        }
+
+        .form-signin {
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            margin: 0 auto;
+        }
+        .form-signin .checkbox {
+            font-weight: 400;
+        }
+        .form-signin .form-control {
+            position: relative;
+            box-sizing: border-box;
+            height: auto;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .form-signin .form-control:focus {
+            z-index: 2;
+        }
+
+    </style>
 </head>
-<body>
+<body class="text-center">
+<form class="form-signin">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+
+        姓名: &#8194;&#8194;<input type="text" placeholder="请输入姓名"> <span style="color:red">*</span><br>
+        性别: <div class="form-check form-check-inline"> &nbsp &nbsp &nbsp &nbsp &nbsp
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+        <label class="form-check-label" for="inlineRadio1">男</label> &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+    </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <label class="form-check-label" for="inlineRadio2">女</label><span style="color:red">*</span><br>
+        </div><br>
+        密码: &#8195;&#8194;&#8194;<input type="password" placeholder="请输入密码"><span style="color:red">*</span><br>
+        确认密码: <input type="password" placeholder="请再次输入密码"><span style="color:red">*</span><br>
+        家庭住址: <input type="text" placeholder="省－市－区"><br>
+        联系方式: <input type="text" placeholder="请输入联系方式"><span style="color:red">*</span><br>
+        推荐人名: <input type="text" placeholder="请输入推荐人姓名"><br>
+        出生日期:
+        <select style="width:80px;height:300px;">
+            <option value="year1">1997</option>
+        <option value="year2">1996</option>
+        <option value="year3">1995</option>
+        <option value="year4">1994</option>
+        <option value="year5">1993</option>
+        <option value="year6">1992</option>
+        <option value="year7">1991</option>
+        <option value="year8">1990</option>
+        <option value="year9">1989</option>
+        <option value="year10">1987</option>
+        <option value="year11">1986</option>
+        <option value="year12">1985</option>
+        <option value="year13">1984</option>
+        <option value="year14">1983</option>
+        <option value="year15">1982</option>
+        <option value="year16">1981</option>
+        <option value="year17">1980</option>
+        <option value="year18">1979</option>
+        <option value="year19">1978</option>
+        <option value="year20">1977</option>
+        </select>
+        <select style="width:60px;height:300px;">
+            <option value="month1">1</option>
+            <option value="month2">2</option>
+            <option value="month3">3</option>
+            <option value="month4">4</option>
+            <option value="month4">4</option>
+            <option value="month5">5</option>
+            <option value="month6">6</option>
+            <option value="month7">7</option>
+            <option value="month8">8</option>
+            <option value="month9">9</option>
+            <option value="month10">10</option>
+            <option value="month11">11</option>
+            <option value="month12">12</option>
+        </select>
+        <select style="width:60px;height:300px;"><span style="color:red">*</span><br>
+            <option value="day1">1</option>
+            <option value="day2">2</option>
+            <option value="day3">3</option>
+            <option value="day4">4</option>
+            <option value="day5">5</option>
+            <option value="day6">6</option>
+            <option value="day7">7</option>
+            <option value="day8">8</option>
+            <option value="day9">9</option>
+            <option value="day10">10</option>
+            <option value="day11">11</option>
+            <option value="day12">12</option>
+            <option value="day13">13</option>
+            <option value="day14">14</option>
+            <option value="day15">15</option>
+            <option value="day16">16</option>
+            <option value="day17">17</option>
+            <option value="day18">18</option>
+            <option value="day19">19</option>
+            <option value="day20">20</option>
+            <option value="day21">21</option>
+            <option value="day22">22</option>
+            <option value="day23">23</option>
+            <option value="day24">24</option>
+            <option value="day25">25</option>
+            <option value="day26">26</option>
+            <option value="day27">27</option>
+            <option value="day28">28</option>
+            <option value="day29">29</option>
+            <option value="day30">30</option>
+            <option value="day31">31</option>
+
+        </select><br>
+
+        行业分会：
+
+        <select style="width:200px;height:300px;">
+
+            <option value="group1">行业分会1</option>
+            <option value="group2">行业分会2</option>
+            <option value="group3">行业分会3</option>
+            <option value="group4">行业分会4</option>
+        </select><br>
+        专委会：&nbsp &nbsp
+        <select style="width:200px;height:300px;">＊
+            <option value="g1">专委会1</option>
+            <option value="g2">专委会2</option>
+            <option value="g3">专委会3</option>
+            <option value="g4">专委会4</option>
+        </select>
+        <br><br>
+        <button type="submit" class="btn btn-primary">提交</button>&#8195;&#8195;
+        <button type="button1" class="btn btn-primary">清空</button>&#8195;&#8195;
+        <button type="button2" class="btn btn-primary">取消</button>
+    </form>
+
 
 </body>
 </html>
