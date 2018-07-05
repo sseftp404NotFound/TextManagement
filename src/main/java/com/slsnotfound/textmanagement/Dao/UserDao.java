@@ -9,6 +9,9 @@ public interface UserDao {
     @Select("Select uid,password From User;")
     List<User> GetUser();
 
+    @Select("Select * From user Where username=#{username}")
+    User getUserByUsername(@Param("username") String username);
+
     @Insert("Insert Into User (username,password,sex,address,tel,referrer,year,month,day,industry,committee) Values('username','password',sex,'address',tel,'referrer',year,month,day,'industry','committee')")
     @Options(useGeneratedKeys = true, keyProperty = "uid")
     int insert(User user);
