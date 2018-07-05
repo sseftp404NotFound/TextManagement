@@ -7,11 +7,10 @@ public class User {
     private int uid;
     private String username;
     private int sex;
-    private int year;
-    private int month;
-    private int day;
+    private String birthday;
     private String password;
-    private String adress;
+    private int phonenum;
+    private String address;
     private String referrer;
     private String industry;
     private String committee;
