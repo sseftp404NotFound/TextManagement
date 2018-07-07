@@ -9,7 +9,7 @@ public class User {
     private int sex;
     private String birthday;
     private String password;
-    private int phonenum;
+    private String phonenum;
     private String address;
     private String referrer;
     private String industry;

@@ -1,4 +1,4 @@
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>能力规范文稿管理系统</title>
@@ -6,13 +6,10 @@
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
     <style>
-        html,
         body {
             height: 100%;
-        }
-
-        body {
             display: -ms-flexbox;
             display: -webkit-box;
             display: flex;
@@ -53,41 +50,40 @@
             border-top-right-radius: 0;
         }
     </style>
-
-<body>
-<div></div>
-</body>
 </html>
 </head>
 <body class="text-center">
 <form action="/user/Login" method="post" class="form-signin">
+
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label class="sr-only" for="inputName">user name</label>
 
-    <input class="form-control" id="inputName" name="username" autofocus="" required="" type="name" placeholder="user name">
-
-    <label class="sr-only" for="inputPassword">Password</label>
-    <input class="form-control" id="inputPassword" name="password" required="" type="password" placeholder="Password">
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" value="remember-me">Remember me
-        </label>
-
+    <div th:if="${message!=null}" id="myAlert" class="alert alert-danger">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <strong>Wrong:</strong><a th:text="${message}"></a>
     </div>
+
+    <input class="form-control"name="username" type="text" placeholder="Username">
+    <input class="form-control"name="password" type="password" placeholder="Password">
 
     <button class="btn btn-lg btn-outline-danger btn-block" type="submit">Sign in</button>
-    <a href="http://localhost:63342/textmanagement/templates/SignUp.html?_ijt=9u3aec70g1u846o7vprnnjmkbq"class="button btn btn-lg btn-outline-danger btn-block">Sign up</a>
+
+    <div class="float-right"><a role="button" href="/user/SignUp" class="btn btn-link">SignUp</a></div>
     <br>
-    <div class="list-group">
-        <a href="#"> 关于草案评审的工作规范-------------------------------2018/6/1</a>
-        <a href="#"> 管理系统申请资格规范---------------------------------2018/6/10</a>
-        <a href="#"> 提案草案审批规范-------------------------------------2017/12//1</a>
-        <a href="#"> 成立分组规范----------------------------------------2017/10/22</a>
-        <a href="#"> 草案详情撰写规范-------------------------------------2018/11/1</a>
-        <a href="#"> 数据管理规范-----------------------------------------2018/10/1</a>
+    <br>
+    <div class="card">
+        <div class="card-body">
+            <div class="list-group">
+                <div class="text-left">
+                    <a href="#"> 关于草案评审的工作规范------------------------------------------2018/06/01</a>
+                    <a href="#"> 管理系统申请资格规范--------------------------------------------2018/06/10</a>
+                    <a href="#"> 提案草案审批规范-------------------------------------------------2017/12/01</a>
+                    <a href="#"> 成立分组规范------------------------------------------------------2017/10/22</a>
+                    <a href="#"> 草案详情撰写规范-------------------------------------------------2018/11/01</a>
+                    <a href="#"> 数据管理规范------------------------------------------------------2018/10/01</a>
+                </div>
+            </div>
+        </div>
     </div>
-
 </form>
-
 </body>
 </html>

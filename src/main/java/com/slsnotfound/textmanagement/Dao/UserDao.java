@@ -6,17 +6,23 @@ import java.util.List;
 
 @Mapper
 public interface UserDao {
-    @Select("Select uid,password From User;")
-    List<User> GetUser();
+    @Select("Select * From user")
+    List<User> getAllUsers();
 
     @Select("Select * From user Where username=#{username}")
     User getUserByUsername(@Param("username") String username);
 
-    @Insert("Insert Into User (username,password,sex,address,tel,referrer,year,month,day,industry,committee) Values('username','password',sex,'address',tel,'referrer',year,month,day,'industry','committee')")
+    @Insert("INSERT INTO user(username,password,role,name,sex,birthday,address,contact,referrer,industryid,committeeid) VALUES (#{username},#{password},#{role},#{name},#{sex},#{birthday},#{address},#{contact},#{referrer},#{industryid},#{committeeid})")
     @Options(useGeneratedKeys = true, keyProperty = "uid")
     int insert(User user);
 
-    @Update("Update User Set (company='company',profession='profession',email='email',wechat='wechat' )Where uid=uid")
-    int update(User user);
+    @Select("Select * From user Where status=0")
+    List<User> getUnVerifyUsers();
+
+    @Select("Select * From user Where uid=#{uid}")
+    User getUserByUid(@Param("uid") int uid);
+
+    @Update("Update user Set status=#{status} Where uid=#{uid}")
+    void changeStatus(@Param("uid") int uid, @Param("status") int status);
 
 }

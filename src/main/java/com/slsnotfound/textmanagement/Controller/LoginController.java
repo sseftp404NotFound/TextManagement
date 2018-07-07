@@ -19,27 +19,30 @@ public class LoginController {
 
     @RequestMapping(path = "/user/Login", method = RequestMethod.GET)
     public String login() {
-        return "login";
+        return "Login";
     }
 
-    @RequestMapping(path = "/user/login", method = RequestMethod.POST)
+    @RequestMapping(path = "/user/Login", method = RequestMethod.POST)
     public String loginAction(ModelMap modelMap,
                               HttpSession session,
                               @RequestParam("username") String username,
                               @RequestParam("password") String password) {
         User user = userDao.getUserByUsername(username);
-        if (user != null) {
-            if (user.getPassword().equals(password)) {
-                session.setAttribute("user", user);
-                return "redirect:/index";
-            } else {
-                modelMap.addAttribute("message", "密码错误");
-                return "login";
+        if (user!=null){
+            if (password.equals(user.getPassword())&&user.getRole()==0){
+                session.setAttribute("user",user);
+                return "redirect:/User";
+            }else if(password.equals(user.getPassword())&&user.getRole()==1){
+                session.setAttribute("user",user);
+                return "redirect:/Admin";
+            }else {
+                modelMap.addAttribute("message", "Wrong Password!");
+                return "Login";
             }
-        } else {
-            modelMap.addAttribute("message", "用户名不存在");
-            return "login";
-
+        }else{
+            modelMap.addAttribute("message", "Wrong Username!");
+            return "Login";
         }
     }
 }
+
