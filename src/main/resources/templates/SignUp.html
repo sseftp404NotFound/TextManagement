@@ -1,19 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>登陆页面</title>
+    <title>SignUp</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <style>
-        html,
         body {
             height: 100%;
-        }
-
-        body {
             display: -ms-flexbox;
             display: -webkit-box;
             display: flex;
@@ -23,17 +19,14 @@
             background-color: #f5f5f5;
             text-align:center;
             text-justify:inter-ideograph;
-
-
         }
-
         .form-signin {
             width: 100%;
-            max-width: 330px;
+            max-width: 440px;
             padding: 15px;
             margin: 0 auto;
         }
-        .form-signin .checkbox {
+        .form-signin . {
             font-weight: 400;
         }
         .form-signin .form-control {
@@ -46,53 +39,53 @@
         .form-signin .form-control:focus {
             z-index: 2;
         }
-
     </style>
 </head>
 <body class="text-center">
 <form action="/user/SignUp" method="post" class="form-signin">
     <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+    <div class="card">
+        <div class="card-body">
+            <div class="list-group">
+                <div class="text-left">
+                    姓&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名:&nbsp &nbsp<input type="text" name="username" placeholder="请输入姓名"> <span style="color:red">*</span><br>
+                    性&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp别: &nbsp
+                    <select style="width:100px;height:30px;">
+                        <option value="group1">男</option>
+                        <option value="group2">女</option>
+                    </select><br>
+                    密&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp码:&nbsp &nbsp<input type="password" name="password" placeholder="请输入密码"><span style="color:red">*</span><br>
+                    确认密码: &nbsp <input type="password" name="password" placeholder="请再次输入密码"><span style="color:red">*</span><br>
+                    家庭住址: &nbsp <input type="text" name="address" placeholder="省－市－区"><br>
+                    联系方式: &nbsp <input type="text" name="tel" placeholder="请输入联系方式"><span style="color:red">*</span><br>
+                    推荐人名: &nbsp <input type="text" name="referrer"placeholder="请输入推荐人姓名"><br>
+                    出生日期: &nbsp <input type="date" >
 
-        姓名: &#8194;&#8194;<input type="text" name="username" placeholder="请输入姓名"> <span style="color:red">*</span><br>
-        性别: <div class="form-check form-check-inline"> &nbsp &nbsp &nbsp &nbsp &nbsp
-        <input class="form-check-input" type="radio" name="sex" id="inlineRadio1" value="option1">
-        <label class="form-check-label" for="inlineRadio1">男</label> &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                    <br>
+                    行业分会: &nbsp
+                    <select >
+                        <option value="group1">行业分会1</option>
+                        <option value="group2">行业分会2</option>
+                        <option value="group3">行业分会3</option>
+                        <option value="group4">行业分会4</option>
+                    </select>
+
+                    <br>
+                    专&nbsp 委&nbsp 会: &nbsp
+                    <select style="width:100px;height:30px;">＊
+                        <option value="g1">专委会1</option>
+                        <option value="g2">专委会2</option>
+                        <option value="g3">专委会3</option>
+                        <option value="g4">专委会4</option>
+                    </select>
+                </div>
+            </div>
+        </div>
     </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="sex" id="inlineRadio2" value="option2">
-            <label class="form-check-label" for="inlineRadio2">女</label><span style="color:red">*</span><br>
-        </div><br>
-        密码: &#8195;&#8194;&#8194;<input type="password" name="password" placeholder="请输入密码"><span style="color:red">*</span><br>
-        确认密码: <input type="password" name="password" placeholder="请再次输入密码"><span style="color:red">*</span><br>
-        家庭住址: <input type="text" name="address" placeholder="省－市－区"><br>
-        联系方式: <input type="text" name="tel" placeholder="请输入联系方式"><span style="color:red">*</span><br>
-        推荐人名: <input type="text" name="referrer"placeholder="请输入推荐人姓名"><br>
-        出生日期:
-        <input type="date"/>
-
-        <br>
-        行业分会：
-
-        <select style="width:100px;height:30px;">
-
-            <option value="group1">行业分会1</option>
-            <option value="group2">行业分会2</option>
-            <option value="group3">行业分会3</option>
-            <option value="group4">行业分会4</option>
-        </select><br>
-        专委会：&nbsp &nbsp
-        <select style="width:100px;height:30px;">＊
-            <option value="g1">专委会1</option>
-            <option value="g2">专委会2</option>
-            <option value="g3">专委会3</option>
-            <option value="g4">专委会4</option>
-        </select>
-        <br><br>
-        <button type="submit" class="btn btn-primary">提交</button>&#8195;&#8195;
-        <button type="button1" class="btn btn-primary">清空</button>&#8195;&#8195;
-        <button type="button2" class="btn btn-primary">取消</button>
-    </form>
-
-
+    <br><br>
+    <button type="submit" class="btn btn-primary">提交</button>&#8195;&#8195;
+    <button type="button1" class="btn btn-primary">清空</button>&#8195;&#8195;
+    <button type="button2" class="btn btn-primary">取消</button>
+</form>
 </body>
 </html>
