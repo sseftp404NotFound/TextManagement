@@ -53,6 +53,10 @@
             border-top-left-radius: 0;
             border-top-right-radius: 0;
         }
+        html,body,.parent{height: 100%; overflow: hidden;}
+        .top{position: absolute; top: 0; left: 0; right: 0; height: 0; background-color: #94a68c; height: 50px;}
+        .left{position: absolute; top: 50px; left: 0;bottom: 50px; width: 200px; background-color: #b5c6b5;}
+        .right{position: absolute; top: 50px; left: 200px; right: 0; bottom: 50px; background-color:#e6e7de; overflow: hidden;}
     </style>
 </head>
 
@@ -60,41 +64,58 @@
 
 <body class="text-center">
 <form action="/user/ProposalDetail" method="post" class="form-signin">
+    <div class="parent">
+        <div class="top">
+            <a>User:</a><a th:text="${username}"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="h3 mb-3 font-weight-normal">写者</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button  type="button" class="btn btn-primary float-right" >注销</button>
+        </div>
+        <div class="left"class="list-group">
 
-    <h1 class="h3 mb-3 font-weight-normal">身份管理</h1>
-    <a class="h3 mb-3 font-weight-normal">姓名：</a>    <input   width="100" >
+            <a href="http://localhost:63342/textmanagement/templates/ProposalQuary.html?_ijt=tpa2gbuuilc57fl7ek9e40gr91" class="list-group-item list-group-item-action active">提案查询</a>
+            <a href="http://localhost:63342/textmanagement/templates/Identity%20managrmrnt.html?_ijt=sda4n35b3ia0f14h02rjcqjmrl" class="list-group-item list-group-item-action">规范查询</a>
+            <a href="http://localhost:63342/textmanagement/templates/ProposalPrepapation.html?_ijt=ea10j55fkdgeb8hd7m09b00ics" class="list-group-item list-group-item-action">提案编制</a>
+            <a href="http://localhost:63342/textmanagement/templates/InforMaintain.html?_ijt=ea10j55fkdgeb8hd7m09b00ics" class="list-group-item list-group-item-action">信息维护</a>
+        </div>
+        <div class="right">
+            <h1 class="h3 mb-3 font-weight-normal">身份管理</h1>
+            <a class="h3 mb-3 font-weight-normal">姓名：</a>    <input   width="100" >
 
-    <button type="button" class="btn btn-primary">查询</button>
+            <button type="button" class="btn btn-primary">查询</button>
 
-    <table class="table table-bordered" border="1" width="400">
+            <table class="table table-bordered" border="1" width="400">
 
 
-        <thead>
+                <thead>
+                <br>
+                <tr>
+                    <th scope="col">选择</th>
+                    <th scope="col">编号</th>
+                    <th scope="col">姓名</th>
+                    <th scope="col">申请信息和推荐表</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row"><input class="form-check-input position-static" type="checkbox"  value="option1" aria-label="..."></th>
+                    <td>1</td>
+                    <td>Mark</td>
+                    <td><a href="http://localhost:63342/textmanagement/templates/table.html?_ijt=70b5dn4jdjri8bm3jlvahl2e0n" >申请信息和申请表</a></td>
+                </tr>
+                </tbody>
+            </table>
+
+            </label>
+
         <br>
-        <tr>
-            <th scope="col">选择</th>
-            <th scope="col">编号</th>
-            <th scope="col">姓名</th>
-            <th scope="col">申请信息和推荐表</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <th scope="row"><input class="form-check-input position-static" type="checkbox"  value="option1" aria-label="..."></th>
-            <td>1</td>
-            <td>Mark</td>
-            <td><a href="http://localhost:63342/textmanagement/templates/table.html?_ijt=70b5dn4jdjri8bm3jlvahl2e0n" >申请信息和申请表</a></td>
-        </tr>
-        </tbody>
-    </table>
-
-    </label>
+        <button type="button" class="btn btn-primary">同意</button>
+        &nbsp;
+        &nbsp;
+        <button type="button" class="btn btn-primary">拒绝</button>
     </div>
-    <br>
-    <button type="button" class="btn btn-primary">同意</button>
-    &nbsp;
-    &nbsp;
-    <button type="button" class="btn btn-primary">拒绝</button>
+    </div>
+
+
 </form>
 
 </body>

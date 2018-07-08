@@ -53,44 +53,57 @@
             border-top-left-radius: 0;
             border-top-right-radius: 0;
         }
+        html,body,.parent{height: 100%; overflow: hidden;}
+        .top{position: absolute; top: 0; left: 0; right: 0; height: 0; background-color: #94a68c; height: 50px;}
+        .left{position: absolute; top: 50px; left: 0;bottom: 50px; width: 200px; background-color: #b5c6b5;}
+        .right{position: absolute; top: 50px; left: 200px; right: 0; bottom: 50px; background-color:#e6e7de; overflow: hidden;}
     </style>
 </head>
 <body class="text-center">
 <form action="/user/ProposalPrepapation" method="post" class="form-signin">
-    <h1 class="h3 mb-3 font-weight-normal">提案编制</h1>
+    <div class="parent">
+        <div class="top">
+            <a>User:</a><a th:text="${username}"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="h3 mb-3 font-weight-normal">写者</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button  type="button" class="btn btn-primary float-right" >注销</button>
+        </div>
+        <div class="left" >
+            <br/>
+            <br/>
+            <button type="button" class="btn btn-primary" a href="http://localhost:63342/textmanagement/templates/ProposalQuary.html?_ijt=tpa2gbuuilc57fl7ek9e40gr91" class="#b5c6b5">提案查询</a></button>
+            <br/>
+            <br/>
+            <button type="button" class="btn btn-primary" a href="http://localhost:63342/textmanagement/templates/Identity%20managrmrnt.html?_ijt=sda4n35b3ia0f14h02rjcqjmrl" class="#b5c6b5">规范查询</a></button>
+            <br/>
+            <br/>
+            <button type="button" class="btn btn-primary" a href="http://localhost:63342/textmanagement/templates/ProposalPrepapation.html?_ijt=ea10j55fkdgeb8hd7m09b00ics" class="#b5c6b5">提案编制</a></button>
+            <br/>
+            <br/>
+            <button type="button" class="btn btn-primary" a href="http://localhost:63342/textmanagement/templates/InforMaintain.html?_ijt=ea10j55fkdgeb8hd7m09b00ics" class="#b5c6b5">信息维护</a></button>
+        </div>
+        <div class="right">
+            <h1 class="h3 mb-3 font-weight-normal">提案编制</h1>
+            </label>
+        <br>
+        <p class="text-lg-left">提案名称</p>
+         <textarea style="width:1000px;height:30px;" name="tName" autofocus="" required=""></textarea>
 
+        <p class="text-lg-left">提案内容</p>
+            <textarea style="width:1000px;height:300px;" name="tText"></textarea>
 
-
-
-
-
-    </label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            <label class="form-check-label" for="exampleRadios1">
+                我已阅读提案建议要求
+            </label>
+            &nbsp;
+            &nbsp;
+            <button type="button" class="btn btn-primary">打印</button>
+            <button type="button" class="btn btn-primary">保存</button>
+            <button type="button" class="btn btn-primary">提交</button>
+        </div>
+        </div>
     </div>
-    <br>
-
-
-    <p class="text-lg-left">提案名称</p>
-    <input class="form-control"  autofocus="" required="" name="tName"  >
-
-    <p class="text-lg-left">提案内容</p>
-    <textarea style="width:1000px;height:300px;" name="tText"></textarea>
-
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-        <label class="form-check-label" for="exampleRadios1">
-            我已阅读提案建议要求
-        </label>
-        &nbsp;
-        &nbsp;
-
-
-
-        <button type="button" class="btn btn-primary">打印</button>
-        <button type="button" class="btn btn-primary">保存</button>
-        <button type="button" class="btn btn-primary">提交</button>
-    </div>
-
-    <br/>
 
 
 </form>
