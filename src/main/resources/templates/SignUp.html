@@ -22,7 +22,7 @@
         }
         .form-signin {
             width: 100%;
-            max-width: 440px;
+            max-width: 650px;
             padding: 15px;
             margin: 0 auto;
         }
@@ -34,58 +34,130 @@
             box-sizing: border-box;
             height: auto;
             padding: 10px;
-            font-size: 16px;
+            font-size: 14px;
         }
         .form-signin .form-control:focus {
             z-index: 2;
         }
     </style>
+    <script>
+        function check() {
+            if($("#password2").val()!=$("#password").val()){
+                $("#password2").attr("class","form-control is-invalid");
+                $("#btnLogin").attr("disabled",true);
+            }else{
+                $("#password2").attr("class","form-control is-valid");
+                $("#btnLogin").attr("disabled",false);
+            }
+        }
+
+    </script>
 </head>
 <body class="text-center">
 <form action="/user/SignUp" method="post" class="form-signin">
-    <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+    <h1 class="h3 mb-3 font-weight-normal " style="font-size: 35px"><large>Please Sign Up</large></h1>
     <div class="card">
         <div class="card-body">
             <div class="list-group">
                 <div class="text-left">
-                    姓&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名:&nbsp &nbsp<input type="text" name="username" placeholder="请输入姓名"> <span style="color:red">*</span><br>
-                    性&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp别: &nbsp
-                    <select style="width:170px;height:30px;">
-                        <option value="group1">男</option>
-                        <option value="group2">女</option>
-                    </select></select><span style="color:red">*</span><br>
-                    密&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp码:&nbsp &nbsp<input type="password" name="password" placeholder="请输入密码"><span style="color:red">*</span><br>
-                    确认密码: &nbsp <input type="password" name="password" placeholder="请再次输入密码"><span style="color:red">*</span><br>
-                    家庭住址: &nbsp <input type="text" name="address" placeholder="省－市－区"><br>
-                    联系方式: &nbsp <input type="text" name="tel" placeholder="请输入联系方式"><span style="color:red">*</span><br>
-                    推荐人名: &nbsp <input type="text" name="referrer"placeholder="请输入推荐人姓名"><br>
-                    出生日期: &nbsp <input type="date" ></select><span style="color:red">*</span>
+                    <div id="div1">
+                        <div class="form-group row">
+                            <label for="username" class="col-2  col-form-label">姓&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名<span style="color:red">*</span></label>
+                            <div class="col-10">
+                                <input type="text" id="username" name="username" class="form-control" placeholder="请输入姓名"
+                                       required
+                                       autofocus>
+                            </div>
+                        </div>
 
-                    <br>
-                    行业分会: &nbsp
-                    <select style="width:170px;height:30px;">
-                        <option value="group1">行业分会1</option>
-                        <option value="group2">行业分会2</option>
-                        <option value="group3">行业分会3</option>
-                        <option value="group4">行业分会4</option>
-                    </select>
+                        <div class="form-group row">
+                            <label for="username" class="col-2  col-form-label">性&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp别<span style="color:red">*</span></label>
+                            <div class="col-10">
+                                <select name="sex" id="sex" class="form-control" required>
+                                    <option value="male" selected>男</option>
+                                    <option value="female">女</option>
+                                </select>
+                            </div>
+                        </div>
 
-                    <br>
-                    专&nbsp 委&nbsp 会: &nbsp
-                    <select style="width:170px;height:30px;">
-                        <option value="g1">专委会1</option>
-                        <option value="g2">专委会2</option>
-                        <option value="g3">专委会3</option>
-                        <option value="g4">专委会4</option>
-                    </select>
+                        <div class="form-group row">
+                            <label for="birthday" class="col-2  col-form-label">出生日期<span style="color:red">*</span></label>
+                            <div class="col-10">
+                                <input type="date" id="birthday" name="birthday" class="form-control"
+                                       required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-2  col-form-label">密&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp码<span style="color:red">*</span></label>
+                            <div class="col-10">
+                                <input type="password" id="password" name="password" class="form-control" placeholder="请输入密码"
+                                       required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-2  col-form-label">确认密码<span style="color:red">*</span></label>
+                            <div class="col-10">
+                                <input type="password" onchange="check()" id="password2" name="password2" class="form-control" placeholder="请再次输入密码"
+                                       required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="phonenum" class="col-2  col-form-label">联系方式<span style="color:red">*</span></label>
+                            <div class="col-10">
+                                <input type="text" id="phonenum" name="phonenum" class="form-control" placeholder="请输入联系方式"
+                                       required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="address" class="col-2  col-form-label">家庭住址</label>
+                            <div class="col-10">
+                                <input type="text" id="address" name="address" class="form-control" placeholder="请输入家庭住址">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inferrer" class="col-2  col-form-label">推&nbsp荐&nbsp人</label>
+                            <div class="col-10">
+                                <input type="text" id="inferrer" name="inferrer" class="form-control" placeholder="请输入推荐人">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="industry" class="col-2  col-form-label">行业分会<span style="color:red">*</span></label>
+                            <div class="col-10">
+                                <select name="industry" id="industry" class="form-control" required>
+                                    <option value="group1">行业分会1</option>
+                                    <option value="group2">行业分会2</option>
+                                    <option value="group3">行业分会3</option>
+                                    <option value="group4">行业分会4</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="committee" class="col-2  col-form-label">专&nbsp委&nbsp会<span style="color:red">*</span></label>
+                            <div class="col-10">
+                                <select name="committee" id="committee" class="form-control" required>
+                                    <option value="g1">专委会1</option>
+                                    <option value="g2">专委会2</option>
+                                    <option value="g3">专委会3</option>
+                                    <option value="g4">专委会4</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <br><br>
-    <button type="submit" class="btn btn-primary">提交</button>&#8195;&#8195;
-    <button type="button1" class="btn btn-primary">清空</button>&#8195;&#8195;
-    <button type="button2" class="btn btn-primary">取消</button>
+    <div class="text-left"><a>备注：申请内容下拉选择想要的行业分会和专委会。</a></div>
+    <a role="button" class="btn btn-danger-outline float-left mr-8" href="/user/Login" style="color: black" >👈返回</a>
+    <input type="reset" class="btn btn-danger-outline mr-8"  value="清空👆">
+    <button id="btnLogin" type="submit" class="btn btn-danger-outline float-right" >提交👉</button>
 </form>
 </body>
 </html>
