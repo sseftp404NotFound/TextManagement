@@ -55,18 +55,40 @@
         }
     </style>
 </head>
+
+
+
 <body class="text-center">
 <form action="/user/ProposalDetail" method="post" class="form-signin">
-    <h3>User:</h3><h3 th:text="${username}"></h3>
-<h1 class="h3 mb-3 font-weight-normal"><a href="http://localhost:63342/textmanagement/templates/ProposalQuary.html?_ijt=tpa2gbuuilc57fl7ek9e40gr91" >提案查询</a></h1>
-<br/>
-<h1 class="h3 mb-3 font-weight-normal"><a href="http://localhost:63342/textmanagement/templates/Identity%20managrmrnt.html?_ijt=sda4n35b3ia0f14h02rjcqjmrl" >规范查询</a></h1>
-<br/>
-<h1 class="h3 mb-3 font-weight-normal"><a href="http://localhost:63342/textmanagement/templates/ProposalPrepapation.html?_ijt=ea10j55fkdgeb8hd7m09b00ics" >提案编制</a></h1>
-<br/>
-<h1 class="h3 mb-3 font-weight-normal"><a href="http://localhost:63342/textmanagement/templates/InforMaintain.html?_ijt=ea10j55fkdgeb8hd7m09b00ics" >信息维护</a></h1>
 
+    <h1 class="h3 mb-3 font-weight-normal">推荐（专委会）</h1>
+
+    <table class="table table-bordered" border="1" width="400">
+
+
+        <thead>
+        <br>
+        <tr>
+            <th scope="col">选择</th>
+            <th scope="col">编号</th>
+            <th scope="col">提案名称</th>
+            <th scope="col">提案人</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row"><input class="form-check-input position-static" type="checkbox"  value="option1" aria-label="..."></th>
+            <td>1</td>
+            <td><a href="http://localhost:63342/textmanagement/templates/ProposalDetail.html?_ijt=a7bi80muknm8109du50edasvbp" >提案1</a></td>
+            <td>Mark</td>
+
+        </tr>
+        </tbody>
+    </table>
+
+    <button type="button" class="btn btn-primary">推荐</button>
 
 </form>
+
 </body>
 </html>
