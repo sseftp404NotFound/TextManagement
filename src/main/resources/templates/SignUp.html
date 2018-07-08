@@ -41,27 +41,13 @@
         }
     </style>
     <script>
-        function $(id) {
-            return document.getElementById(id);
-        }
-
-        function clearDiv() {
-            var nodes=$("div1").childNodes;
-            for(var i = 0 ; i < nodes.length ; i++) {
-                if(nodes[i].type == 'text') {
-                    nodes[i].value = '';
-                }
-            }
-            alert("清空");
-        }
-
         function check() {
             if($("#password2").val()!=$("#password").val()){
-                $("#password2").attr("class","form-control is-invalid")
-                $("#btnLogin").attr("disabled",true)
+                $("#password2").attr("class","form-control is-invalid");
+                $("#btnLogin").attr("disabled",true);
             }else{
-                $("#password2").attr("class","form-control is-valid")
-                $("#btnLogin").attr("disabled",false)
+                $("#password2").attr("class","form-control is-valid");
+                $("#btnLogin").attr("disabled",false);
             }
         }
 
@@ -69,7 +55,7 @@
 </head>
 <body class="text-center">
 <form action="/user/SignUp" method="post" class="form-signin">
-    <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+    <h1 class="h3 mb-3 font-weight-normal " style="font-size: 35px"><large>Please Sign Up</large></h1>
     <div class="card">
         <div class="card-body">
             <div class="list-group">
@@ -164,15 +150,14 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-    <br>
-    <button id="btnLogin" type="submit" class="btn btn-primary">提交</button>&#8195;&#8195;
-    <button type="button1" class="btn btn-primary"  value="clear" onclick="clearDiv(),location.reload()">清空</button>&#8195;&#8195;
-    <button type="button2" class="btn btn-primary" onclick="location.href='/user/Login'">取消</button>
+    <div class="text-left"><a>备注：申请内容下拉选择想要的行业分会和专委会。</a></div>
+    <a role="button" class="btn btn-danger-outline float-left mr-8" href="/user/Login" style="color: black" >👈返回</a>
+    <input type="reset" class="btn btn-danger-outline mr-8"  value="清空👆">
+    <button id="btnLogin" type="submit" class="btn btn-danger-outline float-right" >提交👉</button>
 </form>
 </body>
 </html>

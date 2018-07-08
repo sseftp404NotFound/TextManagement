@@ -38,7 +38,8 @@ public class SignUpController {
         User user=new User(username,sex,birthday,password,phonenum,address,referrer,industry,committee);
         User user1=userDao.getUserByUsername(user.getUsername());
         if(user1!=null){
-
+            modelMap.addAttribute("message", "The user id already taken!");
+            return "SignUp";
         }
         return "";
     }
