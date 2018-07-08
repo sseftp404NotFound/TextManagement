@@ -6,7 +6,7 @@ import lombok.Data;
 public class User {
     private int uid;
     private String username;
-    private int sex;
+    private String sex;
     private String birthday;
     private String password;
     private String phonenum;
@@ -21,4 +21,21 @@ public class User {
     private String email;
     private String wechat;
 
+    public User(){
+
+    }
+
+    public User(String username,String sex,String birthday,String password,String phonenum,String address,String referrer,String industry,String committee){
+        this.username=username;
+        this.sex=sex;
+        this.birthday=birthday;
+        this.password=password;
+        this.phonenum=phonenum;
+        this.address=address;
+        this.referrer=referrer;
+        this.industry=industry;
+        this.committee=committee;
+        this.role=0;
+        this.status=-1;
+    }
 }
