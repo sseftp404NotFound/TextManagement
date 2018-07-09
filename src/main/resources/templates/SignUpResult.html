@@ -55,14 +55,13 @@
         }
     </style>
 </head>
-
-
-
 <body class="text-center">
 <form action="/user/ProposalDetail" method="post" class="form-signin">
 
-    <h1 class="h3 mb-3 font-weight-normal">注册结果</h1>
-    <h4 class="h3 mb-3 font-weight-normal">已提交您的申请，请等待审核！</h4>
+    <h1 class="h3 mb-3 font-weight-normal">RESULT</h1>
+    <div><a th:text="${message}"></a> </div>
+    <div><a th:text="${message2}"></a> </div>
+    <div><a th:text="${message3}"></a> </div>
 
 </form>
 

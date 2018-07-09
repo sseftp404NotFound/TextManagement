@@ -49,10 +49,14 @@ public class SignUpController {
         User user=new User(username,sex,birthday,password,phonenum,address,referrer,industry,committee);
         int result=userDao.insert(user);
         if(result<=0){
-            session.setAttribute("message","Sorry!<br>Database Wrong!<br>Please Sign Up again!");
+            session.setAttribute("message","Sorry!");
+            session.setAttribute("message2","Database Wrong!");
+            session.setAttribute("message3","Please Sign Up again!");
             return "redirect:/SignUpResult";
         }else{
-            session.setAttribute("message","Checking!Please Wait!<br>Or Return Sign In!");
+            session.setAttribute("message","Checking!");
+            session.setAttribute("message2","Please Wait!");
+            session.setAttribute("message3","Or Return Sign In!");
             return "redirect:/SignUpResult";
         }
     }
