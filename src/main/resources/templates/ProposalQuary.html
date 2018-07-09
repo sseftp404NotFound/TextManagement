@@ -57,7 +57,7 @@
         html,body,.parent{height: 100%; overflow: hidden;}
         .top{position: absolute; top: 0; left: 0; right: 0; height: 0; background-color: #666666	; height: 50px;}
         .left{position: absolute; top: 50px; left: 0;bottom: 0px; width: 200px; background-color: #CCCCCC;}
-        .right{position: absolute; top: 50px; left: 200px; right: 0; bottom: 0px; background-color:#FFFFFF; overflow: hidden;}
+        .right{position: absolute; top: 50px; left: 200px; right: 0; bottom: 0px; background-color:#FFFFFF; overflow: auto;}
 
     </style>
 </head>
@@ -72,7 +72,7 @@
 
         <div class="left">
             <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action" color="#CCCCCC">提案查询</a>
+                <a href="#" class="list-group-item list-group-item-action" style="color: darkcyan">提案查询</a>
                 <a href="#" class="list-group-item list-group-item-action">规范查询</a>
                 <a href="#" class="list-group-item list-group-item-action">提案编制</a>
                 <a href="#" class="list-group-item list-group-item-action disabled">信息维护</a>
@@ -80,10 +80,6 @@
         </div>
 
         <div class="right">
-
-
-
-            <h1 class="h3 mb-3 font-weight-normal">提案列表</h1>
             <table class="table table-bordered" border="1" width="400">
                 <thead>
                 <br>
