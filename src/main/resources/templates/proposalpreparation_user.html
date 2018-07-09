@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <html>
 <head>
     <meta charset="UTF-8">
@@ -32,7 +32,7 @@
 
         .form-signin {
             width: 100%;
-            max-width: 1000px;
+            max-width:1000px;
             padding: 15px;
             margin: 0 auto;
         }
@@ -61,54 +61,50 @@
     </style>
 </head>
 <body class="text-center">
-<form action="/user/ProposalQuary" method="post" class="form-signin">
+<form action="/user/proposalpreparation" method="post" class="form-signin">
 
     <div class="parent">
         <div class="top">
-            <font color="white" size="6">User:</font><font color="white" size="6" th:text="${username}"></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <font color="white" size="6">管理者</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button  type="button" class="btn btn-primary float-right" >注销</button>
+            <div ><font color="white"  class="float-left ">当前用户:</font><font color="white"  class="float-left " th:text="${username}"></font></div>
+            <font color="#CCCCCC" size="6">能力规范文稿管理系统</font><a role="button" class="btn btn-danger-outline float-right" href="/user/Exit" >Exit</a>
         </div>
-        <div class="left"class="list-group">
+        <div class="left" class="list-group">
             <div class="list-group">
-                <a href="http://localhost:63342/textmanagement/templates/IdentityManage.html?_ijt=gjjnm5sneo16nmhld3qm46hon8" class="list-group-item list-group-item-action" color="#CCCCCC">身份管理</a>
-                <a href="http://localhost:63342/textmanagement/templates/committee.html?_ijt=gjjnm5sneo16nmhld3qm46hon8" class="list-group-item list-group-item-action">专委会</a>
-                <a href="http://localhost:63342/textmanagement/templates/industry.html?_ijt=gjjnm5sneo16nmhld3qm46hon8" class="list-group-item list-group-item-action">行业分会</a>
+                <a href="http://localhost:63342/textmanagement/templates/ProposalQuary.html?_ijt=tpa2gbuuilc57fl7ek9e40gr91" class="list-group-item list-group-item-action" style="color: #666666">提案查询</a>
+                <a href="http://localhost:63342/textmanagement/templates/Identity%20managrmrnt.html?_ijt=sda4n35b3ia0f14h02rjcqjmrl" class="list-group-item list-group-item-action"style="color: #666666">规范查询</a>
+                <a href="http://localhost:63342/textmanagement/templates/ProposalPrepapation.html?_ijt=ea10j55fkdgeb8hd7m09b00ics" class="list-group-item list-group-item-action"style="color: darkcyan">提案编制</a>
+                <a href="http://localhost:63342/textmanagement/templates/InforMaintain.html?_ijt=ea10j55fkdgeb8hd7m09b00ics" class="list-group-item list-group-item-action disabled" style="color: #666666">信息维护</a>
             </div>
-
         </div>
 
         <div class="right">
-            <h1 class="h3 mb-3 font-weight-normal">推荐（专委会）</h1>
+            <div th:if="${message!=null}" id="myAlert" class="alert alert-danger">
+                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                <strong>Wrong:</strong><a th:text="${message}"></a>
+            </div>
+            <br>
+            <p class="text-lg-centre">提案名称</p>
+            <textarea style="width:1000px;height:30px;" name="name" autofocus="" required=""></textarea>
 
-            <table class="table table-bordered" border="1" width="400">
+            <p class="text-lg-centre">提案内容</p>
+            <textarea style="width:1000px;height:300px;" name="text"></textarea>
 
+            <div class="form-check">
+                <div class="text-left" ><input class="form-check-input float-left " type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                    <label class="form-check-label  " for="exampleRadios1">我已阅读提案建议要求</label>
+                </div>
 
-                <thead>
-                <br>
-                <tr>
-                    <th scope="col">选择</th>
-                    <th scope="col">编号</th>
-                    <th scope="col">提案名称</th>
-                    <th scope="col">提案人</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row"><input class="form-check-input position-static" type="checkbox"  value="option1" aria-label="..."></th>
-                    <td>1</td>
-                    <td><a href="http://localhost:63342/textmanagement/templates/ProposalDetail.html?_ijt=a7bi80muknm8109du50edasvbp" >提案1</a></td>
-                    <td>Mark</td>
+            </div>
 
-                </tr>
-                </tbody>
-            </table>
+                <div class="col-12"><button type="button" class="btn btn-outline-dark float-right">提交</button></div>
+                <div class="col-11"><button type="button" class="btn btn-outline-dark float-right ">查看详情</button></div>
 
-            <button type="button" class="btn btn-primary">推荐</button>
+        </div>
         </div>
 
-
     </div>
+
+
 </form>
 
 </body>

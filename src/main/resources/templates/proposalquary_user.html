@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <html>
 <head>
     <meta charset="UTF-8">
@@ -53,6 +53,7 @@
             border-top-left-radius: 0;
             border-top-right-radius: 0;
         }
+
         html,body,.parent{height: 100%; overflow: hidden;}
         .top{position: absolute; top: 0; left: 0; right: 0; height: 0; background-color: #666666	; height: 50px;}
         .left{position: absolute; top: 50px; left: 0;bottom: 0px; width: 200px; background-color: #CCCCCC;}
@@ -60,66 +61,57 @@
 
     </style>
 </head>
-
-
-
-
 <body class="text-center">
-<form action="/user/IdentityManage" method="post" class="form-signin">
+<form action="/user/proposalquary" method="post" class="form-signin">
 
     <div class="parent">
-
         <div class="top">
             <div ><font color="white"  class="float-left ">当前用户:</font><font color="white"  class="float-left " th:text="${username}"></font></div>
-            <font color="#CCCCCC" size="6">能力规范文稿管理系统</font>
-            <a role="button" class="btn btn-danger-outline float-right" href="/user/Exit" style="color: #FFFFFF">Exit</a>
-            <a role="button" class="btn btn-danger-outline float-right" href="/user/ProposalQuary" style="color: #FFFFFF">Change</a>
+            <font color="#CCCCCC" size="6">能力规范文稿管理系统</font><a role="button" class="btn btn-danger-outline float-right" href="/user/Exit" >Exit</a>
         </div>
 
         <div class="left">
             <div class="list-group">
-                <a href="http://localhost:63342/textmanagement/templates/IdentityManage.html?_ijt=gjjnm5sneo16nmhld3qm46hon8" class="list-group-item list-group-item-action" style="color: darkcyan" >身份管理</a>
-                <a href="http://localhost:63342/textmanagement/templates/committee.html?_ijt=gjjnm5sneo16nmhld3qm46hon8" class="list-group-item list-group-item-action">专委会</a>
-                <a href="http://localhost:63342/textmanagement/templates/industry.html?_ijt=gjjnm5sneo16nmhld3qm46hon8" class="list-group-item list-group-item-action">行业分会</a>
+                <a href="#" class="list-group-item list-group-item-action" style="color: darkcyan">提案查询</a>
+                <a href="#" class="list-group-item list-group-item-action"style="color: #666666">规范查询</a>
+                <a role="button" href="/user/proposalpreparation" class="list-group-item " style="color: #666666">提案编制</a>
+                <a role="button" href="/user/informaintain" class="list-group-item" style="color:#666666">信息维护</a>
             </div>
         </div>
 
         <div class="right">
-            <div class="card mb-4">
-                <div class="card-body">
-                    <form action="/user/IdentityManage" method="post" class="form-inline">
-                        <input  class="float-left form-control mr-sm-2 col-10" type="text" name="name"  placeholder="姓名" >
-                        <button type="submit" class="btn btn-outline-dark col-1">查询</button>
-                    </form>
-                </div>
-            </div>
-
             <table class="table table-bordered" border="1" width="400">
                 <thead>
                 <br>
                 <tr>
                     <th scope="col">选择</th>
                     <th scope="col">编号</th>
-                    <th scope="col">姓名</th>
-                    <th scope="col">申请信息</th>
-                    <th scope="col">推荐表</th>
+                    <th scope="col" width="150">提案名称</th>
+                    <th scope="col">作者</th>
+                    <th scope="col">截止日期</th>
+                    <th scope="col" width="150">状态</th>
+                    <th scope="col">附议数</th>
+                    <th scope="col">反对数</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row"><input class="form-check-input position-static" type="checkbox"  value="option1" aria-label="..."></th>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td><a href="http://localhost:63342/textmanagement/templates/table.html?_ijt=70b5dn4jdjri8bm3jlvahl2e0n" >申请信息</a></td>
-                    <td><a href="http://localhost:63342/textmanagement/templates/table.html?_ijt=70b5dn4jdjri8bm3jlvahl2e0n" >推荐表</a></td>
+
+
+                <tr th:each="proposal:${proposals}">
+                    <td><input type="checkbox" name="selectItem" id="selectItem" th:value="${proposal.pid}" value=""/></td>
+                    <td th:text="${proposal.pid}"></td>
+                    <td th:text="${proposal.pname}" role="button" th:href="|/user/proposaldetail/${proposal.pid}|"></td>
+                    <td th:text="${proposal.pwritername}"></td>
+                    <td th:text="${proposal.pendtime}"></td>
+                    <td th:text="${proposal.pcondition}"></td>
+                    <td th:text="${proposal.psupport}"></td>
+                    <td th:text="${proposal.preject}"></td>
                 </tr>
                 </tbody>
             </table>
-
-            </label>
-            <div class="col-12"><button type="reset" class="btn btn-danger-outline float-right">同意</button></div>
-            <div class="col-11"><button type="button" class="btn btn-danger-outline float-right">拒绝</button></div>
-    </div>
+            <div class="col-12"><button type="reset" class="btn btn-danger-outline float-right">撤销</button></div>
+            <div class="col-11"><button type="button" class="btn btn-danger-outline float-right">打印</button></div>
+        </div>
     </div>
 </form>
 

@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<html>
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <head>
     <meta charset="UTF-8">
-    <title>能力规范文稿管理系统</title>
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+    <title>写者界面————信息维护</title>
     <style>
         html,
         body {
@@ -53,7 +51,6 @@
             border-top-left-radius: 0;
             border-top-right-radius: 0;
         }
-
         html,body,.parent{height: 100%; overflow: hidden;}
         .top{position: absolute; top: 0; left: 0; right: 0; height: 0; background-color: #666666	; height: 50px;}
         .left{position: absolute; top: 50px; left: 0;bottom: 0px; width: 200px; background-color: #CCCCCC;}
@@ -69,13 +66,12 @@
             <div ><font color="white"  class="float-left ">当前用户:</font><font color="white"  class="float-left " th:text="${username}"></font></div>
             <font color="#CCCCCC" size="6">能力规范文稿管理系统</font><a role="button" class="btn btn-danger-outline float-right" href="/user/Exit" >Exit</a>
         </div>
-
         <div class="left">
             <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action" style="color: darkcyan">提案查询</a>
-                <a href="#" class="list-group-item list-group-item-action">规范查询</a>
-                <a href="#" class="list-group-item list-group-item-action">提案编制</a>
-                <a href="#" class="list-group-item list-group-item-action disabled">信息维护</a>
+                <a href="#" class="list-group-item list-group-item-action" style="color: #666666">提案查询</a>
+                <a href="#" class="list-group-item list-group-item-action"style="color: #666666">规范查询</a>
+                <a role="button" href="/user/proposalpreparation" class="list-group-item " style="color: #666666">提案编制</a>
+                <a role="button" href="/user/informaintain" class="list-group-item" style="color: darkcyan">信息维护</a>
             </div>
         </div>
 
@@ -84,39 +80,36 @@
                 <thead>
                 <br>
                 <tr>
-                    <th scope="col">选择</th>
-                    <th scope="col">编号</th>
-                    <th scope="col" width="150">提案名称</th>
-                    <th scope="col">作者</th>
-                    <th scope="col">截止日期</th>
-                    <th scope="col" width="150">状态</th>
-                    <th scope="col">附议数</th>
-                    <th scope="col">反对数</th>
+                    <th scope="col">序号</th>
+                    <th scope="col">姓名</th>
+                    <th scope="col" width="150">单位</th>
+                    <th scope="col">职称</th>
+                    <th scope="col">职务</th>
+                    <th scope="col" width="150">电话</th>
+                    <th scope="col">邮箱</th>
+                    <th scope="col">微信</th>
                 </tr>
                 </thead>
                 <tbody>
-
-
-                <tr th:each="proposal:${proposals}">
-                    <td><input type="checkbox" name="selectItem" id="selectItem" th:value="${proposal.pid}" value=""/></td>
-                    <td th:text="${proposal.pid}"></td>
-                    <td th:text="${proposal.pname}"></td>
-                    <td th:text="${proposal.pwritername}"></td>
-                    <td th:text="${proposal.pendtime}"></td>
-                    <td th:text="${proposal.pcondition}"></td>
-                    <td th:text="${proposal.psupport}"></td>
-                    <td th:text="${proposal.preject}"></td>
+                <tr>
+                    <th scope="row"><input class="form-check-input position-static" type="checkbox"  value="option1" aria-label="..."></th>
+                    <td>1</td>
+                    <td><a href="http://localhost:63342/test11/%E6%8F%90%E6%A1%881.html?_ijt=ns56dgjkfng38nnaniedm5nv7o" >提案1</a></td>
+                    <td>Mark</td>
+                    <td>2018/7/4</td>
+                    <td width="100">未通过</td>
+                    <td>2</td>
+                    <td>2</td>
                 </tr>
                 </tbody>
             </table>
-            <div class="col-12"><button type="reset" class="btn btn-danger-outline float-right">撤销</button></div>
-            <div class="col-11"><button type="button" class="btn btn-danger-outline float-right">打印</button></div>
-
+            </label>
+            <button type="button" class="btn btn-primary">修改</button>
+            &nbsp;
+            &nbsp;
+            <button type="button" class="btn btn-primary">返回</button>
         </div>
-
-    </div>
-
-
+        <br>
 
     </div>
 
@@ -124,3 +117,7 @@
 
 </body>
 </html>
+
+
+
+

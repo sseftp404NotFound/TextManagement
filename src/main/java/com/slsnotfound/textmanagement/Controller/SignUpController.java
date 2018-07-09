@@ -4,7 +4,6 @@ import com.slsnotfound.textmanagement.Dao.UserDao;
 import com.slsnotfound.textmanagement.Model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,12 +17,12 @@ public class SignUpController {
     @Autowired
     private UserDao userDao;
 
-    @RequestMapping(path = "/user/SignUp", method = RequestMethod.GET)
-    public String login() {
-        return "SignUp";
+    @RequestMapping(path = "/signup", method = RequestMethod.GET)
+    public String signin() {
+        return "signup";
     }
 
-    @RequestMapping(path = "/user/CheckUsername", method = RequestMethod.POST)
+    @RequestMapping(path = "/user/checkusername", method = RequestMethod.POST)
     @ResponseBody
     String checkUser(@RequestParam("username") String username) {
         User user = userDao.getUserByUsername(username);
@@ -34,7 +33,7 @@ public class SignUpController {
         }
     }
 
-    @RequestMapping(path = "/user/SignUp", method = RequestMethod.POST)
+    @RequestMapping(path = "/user/signup", method = RequestMethod.POST)
     public String loginAction(HttpSession session,
                               @RequestParam("username") String username,
                               @RequestParam("sex") String sex,
@@ -52,12 +51,12 @@ public class SignUpController {
             session.setAttribute("message","Sorry!");
             session.setAttribute("message2","Database Wrong!");
             session.setAttribute("message3","Please Sign Up again!");
-            return "redirect:/SignUpResult";
+            return "redirect:/signupresult";
         }else{
             session.setAttribute("message","Checking!");
             session.setAttribute("message2","Please Wait!");
             session.setAttribute("message3","Or Return Sign In!");
-            return "redirect:/SignUpResult";
+            return "redirect:/signupresult";
         }
     }
 }

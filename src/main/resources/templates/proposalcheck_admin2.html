@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
 <html>
 <head>
     <meta charset="UTF-8">
@@ -32,7 +32,7 @@
 
         .form-signin {
             width: 100%;
-            max-width:1000px;
+            max-width: 1000px;
             padding: 15px;
             margin: 0 auto;
         }
@@ -66,45 +66,53 @@
     <div class="parent">
         <div class="top">
             <font color="white" size="6">User:</font><font color="white" size="6" th:text="${username}"></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <font color="white" size="6">写者</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <font color="white" size="6">管理者</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button  type="button" class="btn btn-primary float-right" >注销</button>
         </div>
         <div class="left"class="list-group">
             <div class="list-group">
-                <a href="http://localhost:63342/textmanagement/templates/ProposalQuary.html?_ijt=tpa2gbuuilc57fl7ek9e40gr91" class="list-group-item list-group-item-action" color="#CCCCCC">提案查询</a>
-                <a href="http://localhost:63342/textmanagement/templates/Identity%20managrmrnt.html?_ijt=sda4n35b3ia0f14h02rjcqjmrl" class="list-group-item list-group-item-action">规范查询</a>
-                <a href="http://localhost:63342/textmanagement/templates/ProposalPrepapation.html?_ijt=ea10j55fkdgeb8hd7m09b00ics" class="list-group-item list-group-item-action">提案编制</a>
-                <a href="http://localhost:63342/textmanagement/templates/InforMaintain.html?_ijt=ea10j55fkdgeb8hd7m09b00ics" class="list-group-item list-group-item-action disabled">信息维护</a>
+                <a href="http://localhost:63342/textmanagement/templates/IdentityManage.html?_ijt=gjjnm5sneo16nmhld3qm46hon8" class="list-group-item list-group-item-action" style="color: #666666">身份管理</a>
+                <a href="http://localhost:63342/textmanagement/templates/committee.html?_ijt=gjjnm5sneo16nmhld3qm46hon8" class="list-group-item list-group-item-action" style="color: darkcyan">提案审批</a>
             </div>
-
         </div>
 
         <div class="right">
-            <h1 class="h3 mb-3 font-weight-normal">提案编制</h1>
-            </label>
-        <br>
-        <p class="text-lg-centre">提案名称</p>
-         <textarea style="width:1000px;height:30px;" name="tName" autofocus="" required=""></textarea>
+            <h1 class="h3 mb-3 font-weight-normal">备案（行业分会）</h1>
 
-        <p class="text-lg-centre">提案内容</p>
-            <textarea style="width:1000px;height:300px;" name="tText"></textarea>
+            <table class="table table-bordered" border="1" width="400">
 
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-            <label class="form-check-label" for="exampleRadios1">
-                我已阅读提案建议要求
-            </label>
-            &nbsp;
-            &nbsp;
-            <button type="button" class="btn btn-primary">打印</button>
-            <button type="button" class="btn btn-primary">保存</button>
-            <button type="button" class="btn btn-primary">提交</button>
-        </div>
-        </div>
 
+                <thead>
+                <br>
+                <tr>
+                    <th scope="col">选择</th>
+                    <th scope="col">编号</th>
+                    <th scope="col">提案名称</th>
+                    <th scope="col">提案人</th>
+                    <th scope="col">专委会</th>
+                    <th scope="col">推荐人</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row"><input class="form-check-input position-static" type="checkbox"  value="option1" aria-label="..."></th>
+                    <td>1</td>
+                    <td><a href="http://localhost:63342/textmanagement/templates/ProposalDetail.html?_ijt=a7bi80muknm8109du50edasvbp" >提案1</a></td>
+                    <td>Mark</td>
+                    <td>Mark</td>
+                    <td>Mark</td>
+
+
+                </tr>
+                </tbody>
+            </table>
+
+            <button type="button" class="btn btn-primary">备案</button>
     </div>
 
 
+</div>
 </form>
 
 </body>

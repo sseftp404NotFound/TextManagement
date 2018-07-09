@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>写者界面————信息维护</title>
+    <title>能力规范文稿管理系统</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
     <style>
         html,
         body {
@@ -69,61 +71,44 @@
         </div>
         <div class="left"class="list-group">
             <div class="list-group">
-                <a href="http://localhost:63342/textmanagement/templates/IdentityManage.html?_ijt=gjjnm5sneo16nmhld3qm46hon8" class="list-group-item list-group-item-action" color="#CCCCCC">身份管理</a>
-                <a href="http://localhost:63342/textmanagement/templates/committee.html?_ijt=gjjnm5sneo16nmhld3qm46hon8" class="list-group-item list-group-item-action">专委会</a>
-                <a href="http://localhost:63342/textmanagement/templates/industry.html?_ijt=gjjnm5sneo16nmhld3qm46hon8" class="list-group-item list-group-item-action">行业分会</a>
+                <a href="http://localhost:63342/textmanagement/templates/IdentityManage.html?_ijt=gjjnm5sneo16nmhld3qm46hon8" class="list-group-item list-group-item-action" style="color: #666666">身份管理</a>
+                <a href="http://localhost:63342/textmanagement/templates/committee.html?_ijt=gjjnm5sneo16nmhld3qm46hon8" class="list-group-item list-group-item-action" style="color: darkcyan">提案审批</a>
             </div>
 
         </div>
 
         <div class="right">
-            <h1 class="h3 mb-3 font-weight-normal">信息维护</h1>
+            <h1 class="h3 mb-3 font-weight-normal">推荐（专委会）</h1>
+
             <table class="table table-bordered" border="1" width="400">
 
 
                 <thead>
                 <br>
                 <tr>
-                    <th scope="col">序号</th>
-                    <th scope="col">姓名</th>
-                    <th scope="col" width="150">单位</th>
-                    <th scope="col">职称</th>
-                    <th scope="col">职务</th>
-                    <th scope="col" width="150">电话</th>
-                    <th scope="col">邮箱</th>
-                    <th scope="col">微信</th>
+                    <th scope="col">选择</th>
+                    <th scope="col">编号</th>
+                    <th scope="col">提案名称</th>
+                    <th scope="col">提案人</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <th scope="row"><input class="form-check-input position-static" type="checkbox"  value="option1" aria-label="..."></th>
                     <td>1</td>
-                    <td><a href="http://localhost:63342/test11/%E6%8F%90%E6%A1%881.html?_ijt=ns56dgjkfng38nnaniedm5nv7o" >提案1</a></td>
+                    <td><a href="http://localhost:63342/textmanagement/templates/ProposalDetail.html?_ijt=a7bi80muknm8109du50edasvbp" >提案1</a></td>
                     <td>Mark</td>
-                    <td>2018/7/4</td>
-                    <td width="100">未通过</td>
-                    <td>2</td>
-                    <td>2</td>
+
                 </tr>
                 </tbody>
             </table>
 
-
-            </label>
-            <button type="button" class="btn btn-primary">修改</button>
-            &nbsp;
-            &nbsp;
-            <button type="button" class="btn btn-primary">返回</button>
+            <button type="button" class="btn btn-primary">推荐</button>
         </div>
-        <br>
+
 
     </div>
-
 </form>
 
 </body>
 </html>
-
-
-
-
