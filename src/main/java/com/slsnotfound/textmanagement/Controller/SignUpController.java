@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
-import javax.validation.constraints.Null;
 
 @Controller
 public class SignUpController {
@@ -36,7 +35,7 @@ public class SignUpController {
     }
 
     @RequestMapping(path = "/user/SignUp", method = RequestMethod.POST)
-    public String loginAction(ModelMap modelMap,
+    public String loginAction(HttpSession session,
                               @RequestParam("username") String username,
                               @RequestParam("sex") String sex,
                               @RequestParam("birthday") String birthday,
@@ -48,11 +47,13 @@ public class SignUpController {
                               @RequestParam("committee") String committee
                               ) {
         User user=new User(username,sex,birthday,password,phonenum,address,referrer,industry,committee);
-        System.out.println(user.getReferrer());
-        System.out.println(user.getCommittee());
-        System.out.println(user.getIndustry());
         int result=userDao.insert(user);
-        System.out.println(result);
-        return "SignUpResult";
+        if(result<=0){
+            session.setAttribute("message","Sorry!<br>Database Wrong!<br>Please Sign Up again!");
+            return "redirect:/SignUpResult";
+        }else{
+            session.setAttribute("message","Checking!Please Wait!<br>Or Return Sign In!");
+            return "redirect:/SignUpResult";
+        }
     }
 }

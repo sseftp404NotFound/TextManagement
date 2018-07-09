@@ -37,7 +37,7 @@ public class User {
         this.industry=industry;
         this.committee=committee;
         this.role=0;
-        this.status=-1;
+        this.status=0;
         this.name=null;
         this.company=null;
         this.profession=null;

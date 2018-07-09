@@ -29,9 +29,15 @@ public class LoginController {
                               @RequestParam("password") String password) {
         User user = userDao.getUserByUsername(username);
         if (user!=null){
-            if (password.equals(user.getPassword())&&user.getRole()==0){
+            if (password.equals(user.getPassword())&&user.getRole()==0&&user.getStatus()==1){
                 session.setAttribute("user",user);
                 return "redirect:/User";
+            }else if(password.equals(user.getPassword())&&user.getRole()==0&&user.getStatus()==0){
+                modelMap.addAttribute("message", "Checking!Please Wait!");
+                return "Login";
+            }else if(password.equals(user.getPassword())&&user.getRole()==0&&user.getStatus()==-1){
+                modelMap.addAttribute("message", "The user has not passed the check!");
+                return "Login";
             }else if(password.equals(user.getPassword())&&user.getRole()==1){
                 session.setAttribute("user",user);
                 return "redirect:/Admin";
@@ -40,7 +46,7 @@ public class LoginController {
                 return "Login";
             }
         }else{
-            modelMap.addAttribute("message", "Wrong Username!");
+            modelMap.addAttribute("message", "The User Not Exist!Please Sign Up!");
             return "Login";
         }
     }
