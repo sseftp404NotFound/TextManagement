@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 public class IdentityManageController {
     @RequestMapping(path = "/user/IdentityManage", method = RequestMethod.GET)
     public String login() {
-        return "SignUpResult";
+        return "IdentityManage";
     }
 
     @RequestMapping("/Admin/IdentityManage")
