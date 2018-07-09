@@ -66,25 +66,25 @@
 
     <div class="parent">
         <div class="top">
-            <font color="white" size="6">User:</font><font color="white" size="6" th:text="${username}"></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <font color="white" size="6">写者</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button  type="button" class="btn btn-primary float-right" >注销</button>
+            <div ><font color="white"  class="float-left ">当前用户:</font><font color="white"  class="float-left " th:text="${username}"></font></div>
+            <font color="#CCCCCC" size="6">能力规范文稿管理系统</font><a role="button" class="btn btn-danger-outline float-right" href="/user/Exit" >Exit</a>
         </div>
-        <div class="left"class="list-group">
-            <div class="list-group">
-                <a href="http://localhost:63342/textmanagement/templates/ProposalQuary.html?_ijt=tpa2gbuuilc57fl7ek9e40gr91" class="list-group-item list-group-item-action" color="#CCCCCC">提案查询</a>
-                <a href="http://localhost:63342/textmanagement/templates/Identity%20managrmrnt.html?_ijt=sda4n35b3ia0f14h02rjcqjmrl" class="list-group-item list-group-item-action">规范查询</a>
-                <a href="http://localhost:63342/textmanagement/templates/ProposalPrepapation.html?_ijt=ea10j55fkdgeb8hd7m09b00ics" class="list-group-item list-group-item-action">提案编制</a>
-                <a href="http://localhost:63342/textmanagement/templates/InforMaintain.html?_ijt=ea10j55fkdgeb8hd7m09b00ics" class="list-group-item list-group-item-action disabled">信息维护</a>
-            </div>
 
+        <div class="left">
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action" color="#CCCCCC">提案查询</a>
+                <a href="#" class="list-group-item list-group-item-action">规范查询</a>
+                <a href="#" class="list-group-item list-group-item-action">提案编制</a>
+                <a href="#" class="list-group-item list-group-item-action disabled">信息维护</a>
+            </div>
         </div>
 
         <div class="right">
+
+
+
             <h1 class="h3 mb-3 font-weight-normal">提案列表</h1>
             <table class="table table-bordered" border="1" width="400">
-
-
                 <thead>
                 <br>
                 <tr>
@@ -99,27 +99,29 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row"><input class="form-check-input position-static" type="checkbox"  value="option1" aria-label="..."></th>
-                    <td>1</td>
-                    <td><a href="http://localhost:63342/textmanagement/templates/ProposalDetail.html?_ijt=jo4g1a84rrnvmu2sik7h42qmgj" >提案1</a></td>
-                    <td>Mark</td>
-                    <td>2018/7/4</td>
-                    <td width="100">未通过</td>
-                    <td>2</td>
-                    <td>2</td>
+
+
+                <tr th:each="proposal:${proposals}">
+                    <td><input type="checkbox" name="selectItem" id="selectItem" th:value="${proposal.pid}" value=""/></td>
+                    <td th:text="${proposal.pid}"></td>
+                    <td th:text="${proposal.pname}"></td>
+                    <td th:text="${proposal.pwritername}"></td>
+                    <td th:text="${proposal.pendtime}"></td>
+                    <td th:text="${proposal.pcondition}"></td>
+                    <td th:text="${proposal.psupport}"></td>
+                    <td th:text="${proposal.preject}"></td>
                 </tr>
                 </tbody>
             </table>
+            <div class="col-12"><button type="reset" class="btn btn-danger-outline float-right">撤销</button></div>
+            <div class="col-11"><button type="button" class="btn btn-danger-outline float-right">打印</button></div>
 
-            </label>
         </div>
-        <br>
-        <button type="button" class="btn btn-primary">打印</button>
-        &nbsp;
-        &nbsp;
-        <button type="button" class="btn btn-primary">撤销</button>
+
     </div>
+
+
+
     </div>
 
 </form>

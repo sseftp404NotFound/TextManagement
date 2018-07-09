@@ -61,38 +61,44 @@
     </style>
 </head>
 <body class="text-center">
-<form action="/user/ProposalQuary" method="post" class="form-signin">
+<form action="/user/IdentityManage" method="post" class="form-signin">
 
     <div class="parent">
+
         <div class="top">
-            <font color="white" size="6">User:</font><font color="white" size="6" th:text="${username}"></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <font color="white" size="6">管理者</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button  type="button" class="btn btn-primary float-right" >注销</button>
+            <div ><font color="white"  class="float-left ">当前用户:</font><font color="white"  class="float-left " th:text="${username}"></font></div>
+            <font color="#CCCCCC" size="6">能力规范文稿管理系统</font>
+            <a role="button" class="btn btn-danger-outline float-right" href="/user/Exit" style="color: #FFFFFF">Exit</a>
+            <a role="button" class="btn btn-danger-outline float-right" href="/user/ProposalQuary" style="color: #FFFFFF">Change</a>
         </div>
-        <div class="left"class="list-group">
+
+        <div class="left">
             <div class="list-group">
-                <a href="http://localhost:63342/textmanagement/templates/IdentityManage.html?_ijt=gjjnm5sneo16nmhld3qm46hon8" class="list-group-item list-group-item-action" color="#CCCCCC">身份管理</a>
+                <a href="http://localhost:63342/textmanagement/templates/IdentityManage.html?_ijt=gjjnm5sneo16nmhld3qm46hon8" class="list-group-item list-group-item-action" style="color: darkcyan" >身份管理</a>
                 <a href="http://localhost:63342/textmanagement/templates/committee.html?_ijt=gjjnm5sneo16nmhld3qm46hon8" class="list-group-item list-group-item-action">专委会</a>
                 <a href="http://localhost:63342/textmanagement/templates/industry.html?_ijt=gjjnm5sneo16nmhld3qm46hon8" class="list-group-item list-group-item-action">行业分会</a>
             </div>
         </div>
 
         <div class="right">
-            <h1 class="h3 mb-3 font-weight-normal">身份管理</h1>
-            <a class="h3 mb-3 font-weight-normal">姓名：</a>    <input   width="100" >
-
-            <button type="button" class="btn btn-primary">查询</button>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <form action="/user/IdentityManage" method="post" class="form-inline">
+                        <input  class="float-left form-control mr-sm-2 col-10" type="text" name="name"  placeholder="姓名" >
+                        <button type="submit" class="btn btn-outline-dark col-1">查询</button>
+                    </form>
+                </div>
+            </div>
 
             <table class="table table-bordered" border="1" width="400">
-
-
                 <thead>
                 <br>
                 <tr>
                     <th scope="col">选择</th>
                     <th scope="col">编号</th>
                     <th scope="col">姓名</th>
-                    <th scope="col">申请信息和推荐表</th>
+                    <th scope="col">申请信息</th>
+                    <th scope="col">推荐表</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -100,18 +106,15 @@
                     <th scope="row"><input class="form-check-input position-static" type="checkbox"  value="option1" aria-label="..."></th>
                     <td>1</td>
                     <td>Mark</td>
-                    <td><a href="http://localhost:63342/textmanagement/templates/table.html?_ijt=70b5dn4jdjri8bm3jlvahl2e0n" >申请信息和申请表</a></td>
+                    <td><a href="http://localhost:63342/textmanagement/templates/table.html?_ijt=70b5dn4jdjri8bm3jlvahl2e0n" >申请信息</a></td>
+                    <td><a href="http://localhost:63342/textmanagement/templates/table.html?_ijt=70b5dn4jdjri8bm3jlvahl2e0n" >推荐表</a></td>
                 </tr>
                 </tbody>
             </table>
 
             </label>
-
-        <br>
-        <button type="button" class="btn btn-primary">同意</button>
-        &nbsp;
-        &nbsp;
-        <button type="button" class="btn btn-primary">拒绝</button>
+            <div class="col-12"><button type="reset" class="btn btn-danger-outline float-right">同意</button></div>
+            <div class="col-11"><button type="button" class="btn btn-danger-outline float-right">拒绝</button></div>
     </div>
     </div>
 
