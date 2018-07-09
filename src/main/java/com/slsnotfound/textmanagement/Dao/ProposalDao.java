@@ -14,8 +14,8 @@ public interface ProposalDao {
     @Select("Select * From proposal;")
     List<Proposal> getAll();
 
-    @Insert("Insert Into Text (tID，tName，tWriterID,tWriterName,tText，bDay，bMonth， bYear,eDay,eMonth,eYear) Values(#{tID}，#{tName}，#{tWriterID},#{tWriterName},#{tText}，#{bDay}，#{bMonth}，#{bYear},#{eDay},#{eMonth},#{eYear})")
-    @Options(useGeneratedKeys = true, keyProperty = "tID")
+    @Insert("Insert Into proposal(pid,pname,pwriterid,pwritername,ptext,psubmittime,pendtime,pcondition,psupport,preject) Values(#{pid}，#{pname}，#{pwriterid},#{pwriterid},#{ptext}，#{psubmittime}，#{pendtime}，#{pcondition},#{psupport},#{preject})")
+    @Options(useGeneratedKeys = true, keyProperty = "pid")
     int insertProposal (Proposal proposal);
 
     @Select("Select * From Text Where tID=#{tID}")

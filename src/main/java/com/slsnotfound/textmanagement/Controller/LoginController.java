@@ -17,9 +17,9 @@ public class LoginController {
     @Autowired
     private UserDao userDao;
 
-    @RequestMapping(path = "/user/Login", method = RequestMethod.GET)
+    @RequestMapping(path = "/login", method = RequestMethod.GET)
     public String login() {
-        return "Login";
+        return "login";
     }
 
     @RequestMapping(path = "/user/Login", method = RequestMethod.POST)
@@ -31,23 +31,23 @@ public class LoginController {
         if (user!=null){
             if (password.equals(user.getPassword())&&user.getRole()==0&&user.getStatus()==1){
                 session.setAttribute("user",user);
-                return "redirect:/ProposalQuary";
+                return "redirect:/user/proposalquary";
             }else if(password.equals(user.getPassword())&&user.getRole()==0&&user.getStatus()==0){
                 modelMap.addAttribute("message", "Checking!Please Wait!");
-                return "Login";
+                return "login";
             }else if(password.equals(user.getPassword())&&user.getRole()==0&&user.getStatus()==-1){
                 modelMap.addAttribute("message", "The user has not passed the check!");
-                return "Login";
+                return "login";
             }else if(password.equals(user.getPassword())&&user.getRole()==1){
                 session.setAttribute("user",user);
-                return "redirect:/IdentityManage";
+                return "redirect:/admin/identitymanage";
             }else {
                 modelMap.addAttribute("message", "Wrong Password!");
-                return "Login";
+                return "login";
             }
         }else{
             modelMap.addAttribute("message", "The User Not Exist!Please Sign Up!");
-            return "Login";
+            return "login";
         }
     }
 }
