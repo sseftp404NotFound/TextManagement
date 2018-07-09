@@ -7,5 +7,4 @@ public class Referee {
     private String Gcompany; //管理员单位
     private String reason;//推荐原因
 
-
 }
