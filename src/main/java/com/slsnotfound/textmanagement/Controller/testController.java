@@ -11,9 +11,9 @@ import javax.servlet.http.HttpSession;
 public class testController {
     @RequestMapping("/test")
     public String index(ModelMap modelMap, HttpSession session) {
-        String s = (String) session.getAttribute("message");
+        User s = (User) session.getAttribute("user");
         if(s!=null){
-            modelMap.addAttribute("message",s);
+            modelMap.addAttribute("username",s.getUsername());
         }
         return "test";
     }

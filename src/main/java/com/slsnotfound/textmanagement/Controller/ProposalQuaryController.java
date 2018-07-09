@@ -15,7 +15,7 @@ public class ProposalQuaryController {
         return "ProposalQuary";
     }
 
-    @RequestMapping("/User/ProposalQuary")
+    @RequestMapping("/ProposalQuary")
     public String index(ModelMap modelMap, HttpSession session) {
         User user = (User) session.getAttribute("user");
         if(user!=null){
