@@ -15,7 +15,7 @@ public class IdentityManageController {
         return "IdentityManage";
     }
 
-    @RequestMapping("/Admin/IdentityManage")
+    @RequestMapping("/IdentityManage")
     public String index(ModelMap modelMap, HttpSession session) {
         User user = (User) session.getAttribute("user");
         if(user!=null){

@@ -31,7 +31,7 @@ public class LoginController {
         if (user!=null){
             if (password.equals(user.getPassword())&&user.getRole()==0&&user.getStatus()==1){
                 session.setAttribute("user",user);
-                return "redirect:/User/ProposalQuary";
+                return "redirect:/ProposalQuary";
             }else if(password.equals(user.getPassword())&&user.getRole()==0&&user.getStatus()==0){
                 modelMap.addAttribute("message", "Checking!Please Wait!");
                 return "Login";
@@ -40,7 +40,7 @@ public class LoginController {
                 return "Login";
             }else if(password.equals(user.getPassword())&&user.getRole()==1){
                 session.setAttribute("user",user);
-                return "redirect:/Admin/IdentityManage";
+                return "redirect:/IdentityManage";
             }else {
                 modelMap.addAttribute("message", "Wrong Password!");
                 return "Login";
