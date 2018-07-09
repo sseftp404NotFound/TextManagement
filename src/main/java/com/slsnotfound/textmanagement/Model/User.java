@@ -16,6 +16,7 @@ public class User {
     private String committee;
     private int role;
     private int status;
+    private String name;
     private String company;
     private String profession;
     private String email;
@@ -36,6 +37,11 @@ public class User {
         this.industry=industry;
         this.committee=committee;
         this.role=0;
-        this.status=-1;
+        this.status=0;
+        this.name=null;
+        this.company=null;
+        this.profession=null;
+        this.email=null;
+        this.wechat=null;
     }
 }

@@ -9,10 +9,10 @@ import java.util.List;
 @Mapper
 public interface TextRemarkDao {
     @Select("Select * From TextRemark;")
-    List<TextRemark> getAllTextRemark();
+    List<TextRemark> getAll();
 
-    @Insert("Insert Into TextRemark (Rid，RName，RText，Ryear，Rmonth，Rday) Values(Rid,'RName','RText',Ryear,Rmonth,Rday)")
+    @Insert("Insert Into TextRemark (Rid，RName，RText，Ryear，Rmonth，Rday) Values(#{Rid},#{RName},#{RText},#{Ryear},#{Rmonth},#{Rday})")
     @Options(useGeneratedKeys = true, keyProperty = "Rid")
-    int insertTextRemark (TextRemark textRemark);
+    int insert(TextRemark textRemark);
 
 }

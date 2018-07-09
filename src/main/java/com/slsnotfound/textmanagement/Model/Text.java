@@ -13,7 +13,7 @@ public class Text {
     private String tSubmitTime;//提案提交时间
     private String tEndTime;//提案截止时间
     private int condition;//状态
-    private int agree;//附议数
-    private int disagree;//反对数
+    private int support;//附议数
+    private int reject;//反对数
 
 }

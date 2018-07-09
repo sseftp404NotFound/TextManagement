@@ -8,6 +8,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 
@@ -22,25 +23,37 @@ public class SignUpController {
         return "SignUp";
     }
 
+    @RequestMapping(path = "/user/CheckUsername", method = RequestMethod.POST)
+    @ResponseBody
+    String checkUser(@RequestParam("username") String username) {
+        User user = userDao.getUserByUsername(username);
+        if (user != null) {
+            return "invalid";
+        } else {
+            return "valid";
+        }
+    }
+
     @RequestMapping(path = "/user/SignUp", method = RequestMethod.POST)
-    public String loginAction(ModelMap modelMap,
-                              HttpSession session,
+    public String loginAction(HttpSession session,
                               @RequestParam("username") String username,
                               @RequestParam("sex") String sex,
                               @RequestParam("birthday") String birthday,
                               @RequestParam("password") String password,
                               @RequestParam("phonenum") String phonenum,
-                              @RequestParam(value = "address", required = false) String address,
-                              @RequestParam(value = "referrer", required = false) String referrer,
+                              @RequestParam(value = "address",required = false)String address,
+                              @RequestParam(value = "referrer",required = false) String referrer,
                               @RequestParam("industry") String industry,
                               @RequestParam("committee") String committee
                               ) {
         User user=new User(username,sex,birthday,password,phonenum,address,referrer,industry,committee);
-        User user1=userDao.getUserByUsername(user.getUsername());
-        if(user1!=null){
-            modelMap.addAttribute("message", "The user id already taken!");
-            return "SignUp";
+        int result=userDao.insert(user);
+        if(result<=0){
+            session.setAttribute("message","Sorry!<br>Database Wrong!<br>Please Sign Up again!");
+            return "redirect:/SignUpResult";
+        }else{
+            session.setAttribute("message","Checking!Please Wait!<br>Or Return Sign In!");
+            return "redirect:/SignUpResult";
         }
-        return "";
     }
 }

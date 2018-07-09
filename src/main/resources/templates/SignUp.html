@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>SignUp</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <style>
@@ -51,6 +51,25 @@
             }
         }
 
+        function checkUser() {
+            $.ajax({
+                type: "post",
+                url: "/user/CheckUsername",
+                data: {
+                    username: $("#username").val()
+                },
+                dataType: "text",
+                success: function (data) {
+                    if(data=="valid"){
+                        $("#username").attr("class","form-control is-valid")
+                        $("#btnLogin").attr("disabled",false);
+                    }else {
+                        $("#username").attr("class","form-control is-invalid")
+                        $("#btnLogin").attr("disabled",true);
+                    }
+                }
+            });
+        }
     </script>
 </head>
 <body class="text-center">
@@ -62,9 +81,9 @@
                 <div class="text-left">
                     <div id="div1">
                         <div class="form-group row">
-                            <label for="username" class="col-2  col-form-label">姓&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名<span style="color:red">*</span></label>
+                            <label for="username" class="col-2  col-form-label">用&nbsp户&nbsp名<span style="color:red">*</span></label>
                             <div class="col-10">
-                                <input type="text" id="username" name="username" class="form-control" placeholder="请输入姓名"
+                                <input type="text" onchange="checkUser()" id="username" name="username" class="form-control" placeholder="用户名"
                                        required
                                        autofocus>
                             </div>
@@ -120,9 +139,9 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="inferrer" class="col-2  col-form-label">推&nbsp荐&nbsp人</label>
+                            <label for="referrer" class="col-2  col-form-label">推&nbsp荐&nbsp人</label>
                             <div class="col-10">
-                                <input type="text" id="inferrer" name="inferrer" class="form-control" placeholder="请输入推荐人">
+                                <input type="text" id="referrer" name="referrer" class="form-control" placeholder="请输入推荐人">
                             </div>
                         </div>
 
@@ -158,9 +177,6 @@
     <a role="button" class="btn btn-danger-outline float-left mr-8" href="/user/Login" style="color: black" >👈返回</a>
     <input type="reset" class="btn btn-danger-outline mr-8"  value="清空👆">
     <button id="btnLogin" type="submit" class="btn btn-danger-outline float-right" href="/user/SignUpResult" >提交👉</button>
-
-
-
 
 </form>
 </body>
