@@ -55,9 +55,9 @@
         }
 
         html,body,.parent{height: 100%; overflow: hidden;}
-        .top{position: absolute; top: 0; left: 0; right: 0; height: 0; background-color: #94a68c; height: 50px;}
-        .left{position: absolute; top: 50px; left: 0;bottom: 0px; width: 200px; background-color: #b5c6b5;}
-        .right{position: absolute; top: 50px; left: 200px; right: 0; bottom: 0px; background-color:#e6e7de; overflow: hidden;}
+        .top{position: absolute; top: 0; left: 0; right: 0; height: 0; background-color: #666666	; height: 50px;}
+        .left{position: absolute; top: 50px; left: 0;bottom: 0px; width: 200px; background-color: #CCCCCC;}
+        .right{position: absolute; top: 50px; left: 200px; right: 0; bottom: 0px; background-color:#FFFFFF; overflow: hidden;}
 
     </style>
 </head>
@@ -65,8 +65,8 @@
 <form action="/user/ProposalDetail" method="post" class="form-signin">
     <div class="parent">
         <div class="top">
-            <a>User:</a><a th:text="${username}"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a class="h3 mb-3 font-weight-normal">写者</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <font color="white" size="6">User:</font><font color="white" size="6" th:text="${username}"></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <font color="white" size="6">写者</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button  type="button" class="btn btn-primary float-right" >注销</button>
         </div>
         <div class="left" >
