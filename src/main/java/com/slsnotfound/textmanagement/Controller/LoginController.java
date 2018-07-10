@@ -38,7 +38,7 @@ public class LoginController {
             }else if(password.equals(user.getPassword())&&user.getRole()==0&&user.getStatus()==-1){
                 modelMap.addAttribute("message", "The user has not passed the check!");
                 return "login";
-            }else if(password.equals(user.getPassword())&&user.getRole()==1){
+            }else if(password.equals(user.getPassword())&&user.getRole()>=1){
                 session.setAttribute("user",user);
                 return "redirect:/admin/identitymanage";
             }else {

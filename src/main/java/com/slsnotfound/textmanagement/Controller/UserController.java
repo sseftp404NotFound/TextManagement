@@ -31,20 +31,20 @@ public class UserController {
         }
     }
 
-    @RequestMapping(path = "user/proposalpreparation")
+    @RequestMapping(path = "/user/proposalpreparation")
     public String newproposal(HttpSession session,
                              ModelMap modelMap) {
         User user = (User) session.getAttribute("user");
         if (user != null) {
             modelMap.addAttribute("username", user.getUsername());
-            modelMap.addAttribute("message",null);
+
             return "proposalpreparation_user";
         } else {
             return "redirect:/login";
         }
     }
 
-    @RequestMapping(path = "user/informaintain")
+    @RequestMapping(path = "/user/informaintain")
     public String informaintain(HttpSession session,
                              ModelMap modelMap) {
         User user = (User) session.getAttribute("user");

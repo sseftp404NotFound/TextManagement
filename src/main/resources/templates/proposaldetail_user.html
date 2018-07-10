@@ -66,11 +66,11 @@
 
     <div class="parent">
         <div class="top">
-            <font color="white" size="6">User:</font><font color="white" size="6" th:text="${username}"></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <font color="white" size="6">写者</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button  type="button" class="btn btn-primary float-right" >注销</button>
+            <div ><font color="white"  class="float-left ">当前用户:</font><font color="white"  class="float-left " th:text="${username}"></font></div>
+            <font color="#CCCCCC" size="6">能力规范文稿管理系统</font>
+            <a role="button" class="btn btn-danger-outline float-right" href="/user/Exit" style="color: #FFFFFF">Exit</a>
         </div>
-        <div class="left"class="list-group">
+        <div class="left">
             <div class="list-group">
                 <a href="http://localhost:63342/textmanagement/templates/ProposalQuary.html?_ijt=tpa2gbuuilc57fl7ek9e40gr91" class="list-group-item list-group-item-action" >提案查询</a>
                 <a href="http://localhost:63342/textmanagement/templates/Identity%20managrmrnt.html?_ijt=sda4n35b3ia0f14h02rjcqjmrl" class="list-group-item list-group-item-action"style="color: #666666">规范查询</a>

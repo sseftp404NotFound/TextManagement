@@ -66,22 +66,19 @@
     <div class="parent">
         <div class="top">
             <div ><font color="white"  class="float-left ">当前用户:</font><font color="white"  class="float-left " th:text="${username}"></font></div>
-            <font color="#CCCCCC" size="6">能力规范文稿管理系统</font><a role="button" class="btn btn-danger-outline float-right" href="/user/Exit" >Exit</a>
+            <font color="#CCCCCC" size="6">能力规范文稿管理系统</font>
+            <a role="button" class="btn btn-danger-outline float-right" href="/user/Exit" style="color: #FFFFFF">Exit</a>
         </div>
-        <div class="left" class="list-group">
+        <div class="left" >
             <div class="list-group">
-                <a href="http://localhost:63342/textmanagement/templates/ProposalQuary.html?_ijt=tpa2gbuuilc57fl7ek9e40gr91" class="list-group-item list-group-item-action" style="color: #666666">提案查询</a>
-                <a href="http://localhost:63342/textmanagement/templates/Identity%20managrmrnt.html?_ijt=sda4n35b3ia0f14h02rjcqjmrl" class="list-group-item list-group-item-action"style="color: #666666">规范查询</a>
-                <a href="http://localhost:63342/textmanagement/templates/ProposalPrepapation.html?_ijt=ea10j55fkdgeb8hd7m09b00ics" class="list-group-item list-group-item-action"style="color: darkcyan">提案编制</a>
-                <a href="http://localhost:63342/textmanagement/templates/InforMaintain.html?_ijt=ea10j55fkdgeb8hd7m09b00ics" class="list-group-item list-group-item-action disabled" style="color: #666666">信息维护</a>
+                <a role="button" href="/user/proposalquary" class="list-group-item list-group-item-action" style="color: #666666">提案查询</a>
+                <a href="#" class="list-group-item list-group-item-action"style="color: #666666">规范查询</a>
+                <a role="button" href="/user/proposalpreparation" class="list-group-item list-group-item-action"style="color: darkcyan">提案编制</a>
+                <a role="button" href="/user/informaintain" class="list-group-item list-group-item-action disabled" style="color: #666666">信息维护</a>
             </div>
         </div>
 
-        <div class="right">
-            <div th:if="${message!=null}" id="myAlert" class="alert alert-danger">
-                <a href="#" class="close" data-dismiss="alert">&times;</a>
-                <strong>Wrong:</strong><a th:text="${message}"></a>
-            </div>
+
             <br>
             <p class="text-lg-centre">提案名称</p>
             <textarea style="width:1000px;height:30px;" name="name" autofocus="" required=""></textarea>
