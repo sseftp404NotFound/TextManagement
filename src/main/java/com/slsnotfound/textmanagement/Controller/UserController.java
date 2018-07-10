@@ -1,6 +1,7 @@
 package com.slsnotfound.textmanagement.Controller;
 
 import com.slsnotfound.textmanagement.Dao.ProposalDao;
+import com.slsnotfound.textmanagement.Dao.ProposalRemarkDao;
 import com.slsnotfound.textmanagement.Model.Proposal;
 import com.slsnotfound.textmanagement.Model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ import java.util.List;
 public class UserController {
     @Autowired
     private ProposalDao proposalDao;
+
+    @Autowired
+    private ProposalRemarkDao proposalRemarkDao;
 
     @RequestMapping("/user/proposalquary")
     public String index(ModelMap modelMap, HttpSession session) {
@@ -74,6 +78,17 @@ public class UserController {
                 return "redirect:/user/proposalpreparation";
             }
         }else{
+            return "redirect:/login";
+        }
+    }
+    @RequestMapping(path = "/user/proposaldetail")
+    public String proposaldetail(HttpSession session,
+                                ModelMap modelMap) {
+        User user = (User) session.getAttribute("user");
+        if (user != null) {
+            modelMap.addAttribute("username", user.getUsername());
+            return "proposaldetail_user";
+        } else {
             return "redirect:/login";
         }
     }
